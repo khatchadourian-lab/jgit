@@ -56,7 +56,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.jgit.internal.JGitText;
-import org.eclipse.jgit.lib.EmptyProgressMonitor;
+import org.eclipse.jgit.lib.ProgressMonitor;
 import org.eclipse.jgit.revwalk.RevBlob;
 import org.junit.Test;
 
@@ -65,7 +65,7 @@ public class GcConcurrentTest extends GcTestCase {
 	public void concurrentRepack() throws Exception {
 		final CyclicBarrier syncPoint = new CyclicBarrier(2);
 
-		class DoRepack extends EmptyProgressMonitor implements
+		class DoRepack implements ProgressMonitor,
 				Callable<Integer> {
 
 			public void beginTask(String title, int totalWork) {
