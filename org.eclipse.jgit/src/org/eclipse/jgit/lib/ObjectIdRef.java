@@ -166,20 +166,6 @@ public abstract class ObjectIdRef implements Ref {
 		return name;
 	}
 
-	public boolean isSymbolic() {
-		return false;
-	}
-
-	@NonNull
-	public Ref getLeaf() {
-		return this;
-	}
-
-	@NonNull
-	public Ref getTarget() {
-		return this;
-	}
-
 	@Nullable
 	public ObjectId getObjectId() {
 		return objectId;

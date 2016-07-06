@@ -58,7 +58,9 @@ public interface ProgressMonitor {
 	 *            the total number of tasks the caller will need to complete
 	 *            their processing.
 	 */
-	void start(int totalTasks);
+	default void start(int totalTasks) {
+		// Ignore the number of tasks.
+	}
 
 	/**
 	 * Begin processing a single task.
@@ -71,7 +73,9 @@ public interface ProgressMonitor {
 	 *            total number of work units the application will perform;
 	 *            {@link #UNKNOWN} if it cannot be predicted in advance.
 	 */
-	void beginTask(String title, int totalWork);
+	default void beginTask(String title, int totalWork) {
+		// empty
+	}
 
 	/**
 	 * Denote that some work units have been completed.
@@ -83,15 +87,21 @@ public interface ProgressMonitor {
 	 * @param completed
 	 *            the number of work units completed since the last call.
 	 */
-	void update(int completed);
+	default void update(int completed) {
+		// empty
+	}
 
 	/** Finish the current task, so the next can begin. */
-	void endTask();
+	default void endTask() {
+		// empty
+	}
 
 	/**
 	 * Check for user task cancellation.
 	 *
 	 * @return true if the user asked the process to stop working.
 	 */
-	boolean isCancelled();
+	default boolean isCancelled() {
+		return false;
+	}
 }

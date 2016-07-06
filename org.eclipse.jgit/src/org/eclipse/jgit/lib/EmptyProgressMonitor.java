@@ -51,24 +51,4 @@ package org.eclipse.jgit.lib;
  */
 public abstract class EmptyProgressMonitor implements ProgressMonitor {
 
-	public void start(int totalTasks) {
-		// empty
-	}
-
-	public void beginTask(String title, int totalWork) {
-		// empty
-	}
-
-	public void update(int completed) {
-		// empty
-	}
-
-	public void endTask() {
-		// empty
-	}
-
-	public boolean isCancelled() {
-		return false;
-	}
-
 }

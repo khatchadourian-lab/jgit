@@ -308,14 +308,6 @@ public abstract class BasePackFetchConnection extends BasePackConnection
 		doFetch(monitor, want, have, outputStream);
 	}
 
-	public boolean didFetchIncludeTags() {
-		return false;
-	}
-
-	public boolean didFetchTestConnectivity() {
-		return false;
-	}
-
 	public void setPackLockMessage(final String message) {
 		lockMessage = message;
 	}

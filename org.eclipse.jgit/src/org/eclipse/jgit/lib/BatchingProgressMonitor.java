@@ -112,10 +112,6 @@ public abstract class BatchingProgressMonitor implements ProgressMonitor {
 		delayStartUnit = unit;
 	}
 
-	public void start(int totalTasks) {
-		// Ignore the number of tasks.
-	}
-
 	public void beginTask(String title, int work) {
 		endTask();
 		task = new Task(title, work);
@@ -133,10 +129,6 @@ public abstract class BatchingProgressMonitor implements ProgressMonitor {
 			task.end(this);
 			task = null;
 		}
-	}
-
-	public boolean isCancelled() {
-		return false;
 	}
 
 	/**

@@ -142,7 +142,9 @@ public interface Ref {
 	 * @return true if this is a symbolic reference; false if this reference
 	 *         contains its own ObjectId.
 	 */
-	public abstract boolean isSymbolic();
+	public default boolean isSymbolic() {
+		return false;
+	}
 
 	/**
 	 * Traverse target references until {@link #isSymbolic()} is false.
@@ -161,7 +163,9 @@ public interface Ref {
 	 * @return the reference that actually stores the ObjectId value.
 	 */
 	@NonNull
-	public abstract Ref getLeaf();
+	public default Ref getLeaf() {
+		return this;
+	}
 
 	/**
 	 * Get the reference this reference points to, or {@code this}.
@@ -176,7 +180,9 @@ public interface Ref {
 	 * @return the target reference, or {@code this}.
 	 */
 	@NonNull
-	public abstract Ref getTarget();
+	public default Ref getTarget() {
+		return this;
+	}
 
 	/**
 	 * Cached value of this ref.

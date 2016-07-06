@@ -78,14 +78,6 @@ abstract class BaseFetchConnection extends BaseConnection implements
 	}
 
 	/**
-	 * Default implementation of {@link FetchConnection#didFetchIncludeTags()} -
-	 * returning false.
-	 */
-	public boolean didFetchIncludeTags() {
-		return false;
-	}
-
-	/**
 	 * Implementation of {@link #fetch(ProgressMonitor, Collection, Set)}
 	 * without checking for multiple fetch.
 	 *

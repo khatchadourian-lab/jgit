@@ -170,7 +170,9 @@ public interface FetchConnection extends Connection {
 	 * @return true if the last fetch call implicitly included tag objects;
 	 *         false if tags were not implicitly obtained.
 	 */
-	public boolean didFetchIncludeTags();
+	public default boolean didFetchIncludeTags() {
+		return false;
+	}
 
 	/**
 	 * Did the last {@link #fetch(ProgressMonitor, Collection, Set)} validate
@@ -193,7 +195,9 @@ public interface FetchConnection extends Connection {
 	 *         client side in order to succeed; false if the last fetch assumed
 	 *         the remote peer supplied a complete graph.
 	 */
-	public boolean didFetchTestConnectivity();
+	public default boolean didFetchTestConnectivity() {
+		return false;
+	}
 
 	/**
 	 * Set the lock message used when holding a pack out of garbage collection.
